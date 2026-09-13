@@ -85,8 +85,23 @@ void SNE_Vx_KK(chip8 *cpu, uint8_t x, uint8_t KK){
     return;
 }
 
+//Assignment
 
+void LD_Vx_KK(chip8 *cpu, uint8_t x, uint8_t KK){
+    cpu->V[x] = KK;
+    return;
+}
 
+void LD_I_NNN(chip8 *cpu, uint16_t NNN){
+    cpu->I = NNN;
+    return;
+}
 
+void LD_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y){
+    cpu->V[x] = cpu->V[y];
+    return;
+}
+
+//Arithmetic and Logic
 
 
