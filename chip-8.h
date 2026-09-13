@@ -13,7 +13,7 @@ typedef struct
     uint8_t sound_timer;
     uint8_t sp ;
     uint8_t keyboard[16];
-    uint16_t *pc;
+    uint16_t pc;
     uint16_t I;
     uint16_t stack[16];
     

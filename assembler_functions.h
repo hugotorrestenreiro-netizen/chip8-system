@@ -23,5 +23,14 @@ void SNE_Vx_KK(chip8 *cpu, uint8_t x, uint8_t KK);
 void LD_Vx_KK(chip8 *cpu, uint8_t x, uint8_t KK);
 void LD_I_NNN(chip8 *cpu, uint16_t NNN);
 void LD_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y);
+void ADD_Vx_KK(chip8* cpu, uint8_t x, uint8_t KK);
+void OR_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y);
+void AND_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y);
+void XOR_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y);
+void ADD_Vx_Vy(chip8* cpu, uint8_t x, uint8_t y);
+void SUB_Vx_Vy(chip8* cpu, uint8_t x, uint8_t y);
+void SUBN_Vx_Vy(chip8* cpu, uint8_t x, uint8_t y);
+void SHR_Vx(chip8* cpu, uint8_t x);
+void SHL_Vx(chip8* cpu, uint8_t x);
 
 #endif
