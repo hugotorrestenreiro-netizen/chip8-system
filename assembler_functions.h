@@ -16,5 +16,12 @@ void JP_NNN (chip8 *cpu, uint16_t NNN);
 void CALL_NNN (chip8 *cpu , uint16_t NNN);
 void RET (chip8 *cpu);
 void JP_V0_NNN (chip8 *cpu, uint16_t NNN);
+void SE_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y);
+void SNE_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y);
+void SE_Vx_KK(chip8 *cpu, uint8_t x, uint8_t KK);
+void SNE_Vx_KK(chip8 *cpu, uint8_t x, uint8_t KK);
+void LD_Vx_KK(chip8 *cpu, uint8_t x, uint8_t KK);
+void LD_I_NNN(chip8 *cpu, uint16_t NNN);
+void LD_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y);
 
 #endif
