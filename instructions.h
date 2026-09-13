@@ -1,5 +1,5 @@
-#ifndef ASSEMBLER_F
-#define ASSEMBLER_F
+#ifndef INSTRUCTIONS
+#define INSTRUCTIONS
 #include <stdint.h>
 typedef chip8;
 
