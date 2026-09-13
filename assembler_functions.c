@@ -55,6 +55,36 @@ void JP_V0_NNN (chip8 *cpu, uint16_t NNN){
     return;
 }
 
+//Conditionnal Jump
+
+void SE_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y){
+    if(cpu->V[x] == cpu->V[y]){
+        cpu->pc += 2;
+    }
+    return;
+}
+
+void SNE_Vx_Vy(chip8 *cpu, uint8_t x, uint8_t y){
+    if(cpu->V[x] != cpu->V[y]){
+        cpu->pc += 2;
+    }
+    return;
+}
+
+void SE_Vx_KK(chip8 *cpu, uint8_t x, uint8_t KK){
+    if(cpu->V[x] == KK){
+        cpu->pc += 2;
+    }
+    return;
+}
+
+void SNE_Vx_KK(chip8 *cpu, uint8_t x, uint8_t KK){
+    if(cpu->V[x] != KK){
+        cpu->pc += 2;
+    }
+    return;
+}
+
 
 
 
