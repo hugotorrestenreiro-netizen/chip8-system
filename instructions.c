@@ -265,6 +265,44 @@ void LD_ST_Vx(chip8 *cpu, uint8_t x){
     return;
 }
 
-//Memory and advanced functionnalities
+//Memory and advanced functions
+
+void ADD_I_Vx(chip8* cpu, uint8_t x){
+    cpu->I += cpu->V[x];
+    return;
+}
+
+void LD_F_Vx(chip8* cpu, uint8_t x){
+    cpu->I = 0x050 + ((cpu->V[x] & 0x0F) * 5);
+    return;
+}
+
+void LD_B_Vx(chip8* cpu, uint8_t x){
+
+    uint8_t D = cpu->V[x] % 10;
+    uint8_t C = (cpu->V[x] % 100) / 10;
+    uint8_t B = cpu->V[x] / 100;
+    
+    cpu->memory[cpu->I] = B;
+    cpu->memory[cpu->I+1] = C;
+    cpu->memory[cpu->I+2] = D;
+    
+    return;
+
+}
+
+void LD_Vx_I(chip8* cpu, uint8_t x){
+    for(int i = 0; i<=x; i++){
+        cpu->V[i] = cpu->memory[cpu->I + i];
+    }
+    return;
+}
+
+void LD_I_Vx(chip8* cpu, uint8_t x){
+    for(int i = 0; i<=x; i++){
+        cpu->memory[cpu->I + i] = cpu->V[i] ;
+    }
+    return;
+}
 
 

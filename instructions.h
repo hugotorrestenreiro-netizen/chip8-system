@@ -42,5 +42,11 @@ void RND_Vx_KK(chip8* cpu, uint8_t x, uint8_t KK);
 void LD_Vx_DT(chip8 *cpu, uint8_t x);
 void LD_DT_Vx(chip8 *cpu, uint8_t x);
 void LD_ST_Vx(chip8 *cpu, uint8_t x);
+void ADD_I_Vx(chip8* cpu, uint8_t x);
+void LD_F_Vx(chip8* cpu, uint8_t x);
+void LD_B_Vx(chip8* cpu, uint8_t x);
+void LD_Vx_I(chip8* cpu, uint8_t x);
+void LD_I_Vx(chip8* cpu, uint8_t x);
+
 
 #endif
