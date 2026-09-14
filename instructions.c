@@ -175,6 +175,43 @@ void SHL_Vx(chip8* cpu, uint8_t x){
     return;
 }
 
+//Rendering and Graphism
 
+void CLS(chip8* cpu)  //Effacer l'écran
+{}
 
+void DRW_Vx_Vy_N(chip8* cpu, uint8_t x, uint8_t y, uint8_t N)  //dessinner un sprite à N octet à la coordonnée (Vx, Vy) en appliquant XOR et lève V[0x0F] si collision
+{}
 
+//Keyboard and entry
+
+void SKP_Vx(chip8* cpu, uint8_t x){
+
+    uint8_t key = cpu->V[x];
+
+    if(key <= 0x0F && cpu->keyboard[key] == 1){
+        cpu->pc += 2;
+        return;
+    }
+}
+
+void SKNP_Vx(chip8* cpu, uint8_t x){
+
+    uint8_t key = cpu->V[x];
+
+    if(key <= 0x0F && cpu->keyboard[key] == 0){
+        cpu->pc += 2;
+        return;
+    }
+}
+
+void LD_Vx_K(chip8* cpu, uint8_t x, uint8_t K){
+
+    for (uint8_t i = 0; i < 16; i++) {
+        if (cpu->keyboard[i] == 1) {
+            cpu->V[x] = i;
+            return;
+        }
+    }
+    cpu->pc-=2;
+}

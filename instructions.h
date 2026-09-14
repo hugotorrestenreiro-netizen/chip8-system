@@ -32,5 +32,10 @@ void SUB_Vx_Vy(chip8* cpu, uint8_t x, uint8_t y);
 void SUBN_Vx_Vy(chip8* cpu, uint8_t x, uint8_t y);
 void SHR_Vx(chip8* cpu, uint8_t x);
 void SHL_Vx(chip8* cpu, uint8_t x);
+void CLS(chip8* cpu);
+void DRW_Vx_Vy_N(chip8* cpu, uint8_t x, uint8_t y, uint8_t N);
+void SKP_Vx(chip8* cpu, uint8_t x);
+void SKNP_Vx(chip8* cpu, uint8_t x);
+void LD_Vx_K(chip8* cpu, uint8_t x, uint8_t K);
 
 #endif
