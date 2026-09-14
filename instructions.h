@@ -1,6 +1,7 @@
 #ifndef INSTRUCTIONS
 #define INSTRUCTIONS
 #include <stdint.h>
+#include <stdlib.h>
 typedef chip8;
 
 /*
@@ -37,5 +38,9 @@ void DRW_Vx_Vy_N(chip8* cpu, uint8_t x, uint8_t y, uint8_t N);
 void SKP_Vx(chip8* cpu, uint8_t x);
 void SKNP_Vx(chip8* cpu, uint8_t x);
 void LD_Vx_K(chip8* cpu, uint8_t x, uint8_t K);
+void RND_Vx_KK(chip8* cpu, uint8_t x, uint8_t KK);
+void LD_Vx_DT(chip8 *cpu, uint8_t x);
+void LD_DT_Vx(chip8 *cpu, uint8_t x);
+void LD_ST_Vx(chip8 *cpu, uint8_t x);
 
 #endif

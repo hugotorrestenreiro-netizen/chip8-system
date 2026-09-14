@@ -215,3 +215,25 @@ void LD_Vx_K(chip8* cpu, uint8_t x, uint8_t K){
     }
     cpu->pc-=2;
 }
+
+//Timers and Random
+
+void RND_Vx_KK(chip8* cpu, uint8_t x, uint8_t KK){
+    cpu->V[x] = rand() & KK;
+    return;
+}
+
+void LD_Vx_DT(chip8 *cpu, uint8_t x){
+    cpu->V[x] = cpu->delay_timer;
+    return;
+}
+
+void LD_DT_Vx(chip8 *cpu, uint8_t x){
+    cpu->delay_timer = cpu->V[x];
+    return;
+}
+
+void LD_ST_Vx(chip8 *cpu, uint8_t x){
+    cpu->sound_timer = cpu->V[x];
+    return;
+}
