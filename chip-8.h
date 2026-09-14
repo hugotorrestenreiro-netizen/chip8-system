@@ -22,6 +22,7 @@ typedef struct
 
 chip8* initiate_cpu();
 void initiate_digits(chip8* cpu);
+int load_rom(chip8* cpu, const char* filename);
 
 #define START_ADDRESS 0x200
 #define START_ADDRESS_ETI 0x600

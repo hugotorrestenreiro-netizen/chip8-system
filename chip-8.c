@@ -133,3 +133,31 @@ void initiate_digits(chip8* cpu){
 
     return;
 }
+
+int load_rom(chip8* cpu, const char* filename){
+    FILE* rom = fopen(filename,"rb");
+    if(rom == NULL){
+        printf("Rom initialization error.\n");
+        return 0;
+    }
+
+    fseek(rom, 0, SEEK_END);
+    long rom_size = ftell(rom);
+    rewind(rom);
+
+    if(rom_size > (0xFFF - 0X200)){
+        printf("ROM size overflow.\n");
+        fclose(rom);
+        return 0;
+    }
+
+    size_t byte_read = fread(&cpu->memory[0x200], sizeof(uint8_t), rom_size, rom);
+    if (byte_read != (size_t) rom_size){
+        printf("Reading ROM File issue.\n");
+        fclose(rom);
+        return 0;
+    }
+
+    fclose(rom);
+    return 1;
+}
