@@ -20,6 +20,9 @@ typedef struct
     
 }chip8;
 
+chip8* initiate_cpu();
+void initiate_digits(chip8* cpu);
+
 #define START_ADDRESS 0x200
 #define START_ADDRESS_ETI 0x600
 
