@@ -20,7 +20,7 @@ typedef struct
     
 }chip8;
 
-#define START_ADRESS 0x200
-#define START_ADRESS_ETI 0x600
+#define START_ADDRESS 0x200
+#define START_ADDRESS_ETI 0x600
 
 #endif

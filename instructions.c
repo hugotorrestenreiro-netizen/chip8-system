@@ -273,7 +273,7 @@ void ADD_I_Vx(chip8* cpu, uint8_t x){
 }
 
 void LD_F_Vx(chip8* cpu, uint8_t x){
-    cpu->I = 0x050 + ((cpu->V[x] & 0x0F) * 5);
+    cpu->I = (cpu->V[x] & 0x0F) * 5;
     return;
 }
 
