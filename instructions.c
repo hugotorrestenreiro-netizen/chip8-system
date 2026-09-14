@@ -178,10 +178,37 @@ void SHL_Vx(chip8* cpu, uint8_t x){
 //Rendering and Graphism
 
 void CLS(chip8* cpu)  //Effacer l'écran
-{}
+{
+    for(int i = 0; i<64*32; i++){
+        cpu->display[i] = 0;
+    }
+}
 
 void DRW_Vx_Vy_N(chip8* cpu, uint8_t x, uint8_t y, uint8_t N)  //dessinner un sprite à N octet à la coordonnée (Vx, Vy) en appliquant XOR et lève V[0x0F] si collision
-{}
+{
+    uint8_t coord_x = cpu->V[x] % 64;
+    uint8_t coord_y = cpu->V[y] % 32;
+    cpu->V[0xF] = 0;
+    for (uint8_t row = 0; row < N; row++){
+        uint8_t current_y = coord_y + row;
+        if(current_y >= 32) break;
+        uint8_t sprite_byte = cpu->memory[cpu->I + row];
+        for(uint8_t col = 0; col < 8; col++){
+            uint8_t current_x = coord_x + col;
+            if (current_x >= 64) break;
+            uint8_t sprite_pixel = (sprite_byte >> (7 - col)) & 0x01;
+            if (sprite_pixel == 1) {
+                int pos = (current_y * 64) + current_x;
+
+                if (cpu->display[pos] == 1) {
+                    cpu->V[0xF] = 1;
+                }
+
+                cpu->display[pos] ^= 1;
+            }
+        }
+    }
+}
 
 //Keyboard and entry
 
@@ -237,3 +264,7 @@ void LD_ST_Vx(chip8 *cpu, uint8_t x){
     cpu->sound_timer = cpu->V[x];
     return;
 }
+
+//Memory and advanced functionnalities
+
+

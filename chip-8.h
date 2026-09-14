@@ -12,6 +12,7 @@ typedef struct
     uint8_t delay_timer;
     uint8_t sound_timer;
     uint8_t sp ;
+    uint8_t display[64*32];
     uint8_t keyboard[16];
     uint16_t pc;
     uint16_t I;
