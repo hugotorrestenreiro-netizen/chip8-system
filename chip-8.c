@@ -361,3 +361,4 @@ void decode_execute(chip8* cpu, uint16_t opcode){
     }
 return;
 }
+}
