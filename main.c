@@ -12,12 +12,6 @@ int main(int argc, char *argv[]){
     SDL_Window* window = open_window();
     SDL_Renderer* renderer = initiate_renderer(window);
     SDL_Event event;
-    SDL_Texture* texture = SDL_CreateTexture(
-    renderer, 
-    SDL_PIXELFORMAT_RGBA8888, 
-    SDL_TEXTUREACCESS_STREAMING, 
-    64, 32
-    );
 
     int running = 1;
 
@@ -27,6 +21,13 @@ int main(int argc, char *argv[]){
     if (!window || !renderer || !cpu) {
     return 1;
     }
+
+    SDL_Texture* texture = SDL_CreateTexture(
+    renderer, 
+    SDL_PIXELFORMAT_RGBA8888, 
+    SDL_TEXTUREACCESS_STREAMING, 
+    64, 32
+    );
 
     START = 0;
 
