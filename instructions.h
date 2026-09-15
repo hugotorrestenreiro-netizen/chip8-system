@@ -2,7 +2,7 @@
 #define INSTRUCTIONS
 #include <stdint.h>
 #include <stdlib.h>
-typedef chip8;
+#include "chip-8.h"
 
 /*
 uint8_t find_T(uint16_t value);

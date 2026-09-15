@@ -38,25 +38,25 @@ SDL_Renderer* initiate_renderer(SDL_Window* window){
 void handle_key_event(chip8 *cpu, SDL_Keycode key, uint8_t state) {
     switch (key) {
 
-        case SDLK_1: cpu->key[0x1] = state; break;  //KEY 1 -> &
-        case SDLK_2: cpu->key[0x2] = state; break;  //KEY 2 -> é
-        case SDLK_3: cpu->key[0x3] = state; break;  //KEY 3 -> "
-        case SDLK_4: cpu->key[0xC] = state; break;  //KEY C -> '
+        case SDLK_1: cpu->keyboard[0x1] = state; break;  //KEY 1 -> &
+        case SDLK_2: cpu->keyboard[0x2] = state; break;  //KEY 2 -> é
+        case SDLK_3: cpu->keyboard[0x3] = state; break;  //KEY 3 -> "
+        case SDLK_4: cpu->keyboard[0xC] = state; break;  //KEY C -> '
 
-        case SDLK_a: cpu->key[0x4] = state; break;  //KEY 4 -> a
-        case SDLK_z: cpu->key[0x5] = state; break;  //KEY 5 -> z
-        case SDLK_e: cpu->key[0x6] = state; break;  //KEY 6 -> e
-        case SDLK_r: cpu->key[0xD] = state; break;  //KEY D -> r
+        case SDLK_a: cpu->keyboard[0x4] = state; break;  //KEY 4 -> a
+        case SDLK_z: cpu->keyboard[0x5] = state; break;  //KEY 5 -> z
+        case SDLK_e: cpu->keyboard[0x6] = state; break;  //KEY 6 -> e
+        case SDLK_r: cpu->keyboard[0xD] = state; break;  //KEY D -> r
 
-        case SDLK_q: cpu->key[0x7] = state; break;  //KEY 7 -> q
-        case SDLK_s: cpu->key[0x8] = state; break;  //KEY 8 -> s
-        case SDLK_d: cpu->key[0x9] = state; break;  //KEY 9 -> d
-        case SDLK_f: cpu->key[0xE] = state; break;  //KEY E -> f
+        case SDLK_q: cpu->keyboard[0x7] = state; break;  //KEY 7 -> q
+        case SDLK_s: cpu->keyboard[0x8] = state; break;  //KEY 8 -> s
+        case SDLK_d: cpu->keyboard[0x9] = state; break;  //KEY 9 -> d
+        case SDLK_f: cpu->keyboard[0xE] = state; break;  //KEY E -> f
 
-        case SDLK_w: cpu->key[0xA] = state; break;  //KEY A -> w
-        case SDLK_x: cpu->key[0x0] = state; break;  //KEY 0 -> x
-        case SDLK_c: cpu->key[0xB] = state; break;  //KEY B -> c
-        case SDLK_v: cpu->key[0xF] = state; break;  //KEY F -> v
+        case SDLK_w: cpu->keyboard[0xA] = state; break;  //KEY A -> w
+        case SDLK_x: cpu->keyboard[0x0] = state; break;  //KEY 0 -> x
+        case SDLK_c: cpu->keyboard[0xB] = state; break;  //KEY B -> c
+        case SDLK_v: cpu->keyboard[0xF] = state; break;  //KEY F -> v
 
         default: break;
     }

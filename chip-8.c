@@ -185,21 +185,15 @@ void decode_execute(chip8* cpu, uint16_t opcode){
         switch (x){
             
         case 0:
-            switch (nn) {
-        case 0xE0:
+            switch (n) {
+        case 0:
             CLS(cpu);
             break;
-        case 0xEE:
+        case 14:
             RET(cpu);
             break;
         default:
-            SYS_addr(cpu);
-            break;
-        }
-            break;
-        default:
             //0x0nnn
-            SYS_addr(cpu);
             break;}
         
         break;
