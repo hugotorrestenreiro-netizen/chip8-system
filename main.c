@@ -50,6 +50,7 @@ int main(int argc, char *argv[]){
 
             for (int i = 0; i < 10; i++) {
             uint16_t opcode = fetch(cpu);
+            printf("PC: 0x%03X | Opcode: 0x%04X\n", cpu->pc, opcode);
             decode_execute(cpu, opcode);
         }
             //Update register timers

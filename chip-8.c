@@ -197,7 +197,7 @@ void decode_execute(chip8* cpu, uint16_t opcode){
             break;}
         
         break;
-
+        }
     case 1:
         //0x1nnn
         JP_NNN(cpu, nnn);
@@ -360,5 +360,4 @@ void decode_execute(chip8* cpu, uint16_t opcode){
         break;
     }
 return;
-}
 }
