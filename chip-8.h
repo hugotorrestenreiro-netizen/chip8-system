@@ -17,8 +17,8 @@ typedef struct
     uint16_t pc;
     uint16_t I;
     uint16_t stack[16];
-    
-}chip8;
+}
+chip8;
 
 chip8* initiate_cpu();
 void initiate_digits(chip8* cpu);
