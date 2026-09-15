@@ -185,17 +185,11 @@ void decode_execute(chip8* cpu, uint16_t opcode){
         switch (x){
             
         case 0:
-            switch (n) {
-        case 0:
-            CLS(cpu);
-            break;
-        case 14:
-            RET(cpu);
-            break;
-        default:
-            //0x0nnn
-            break;}
-        
+        switch (nn) {
+            case 224: CLS(cpu); break;  //here nn because of 0x0nnn SYS ADDR instruction wich is not used
+            case 238: RET(cpu); break;
+            default:   break;
+        }
         break;
         }
     case 1:
