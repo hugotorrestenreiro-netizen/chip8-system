@@ -22,18 +22,19 @@ int main(int argc, char *argv[]){
     return 1;
     }
 
-    SDL_Texture* texture = SDL_CreateTexture(
-    renderer, 
-    SDL_PIXELFORMAT_RGBA8888, 
-    SDL_TEXTUREACCESS_STREAMING, 
-    64, 32
-    );
+    SDL_Texture* texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, 64, 32);
 
-    START = 0;
+    load_rom(cpu, filename);
+
+    END = 0;
 
     while(running){
 
+        uint32_t pixel_buffer[64 * 32];
+        START = SDL_GetTicks();
+
         while(SDL_PollEvent(&event)){
+            //Inputs
             if(event.type == SDL_QUIT){
                 running = 0;
             }
@@ -43,10 +44,27 @@ int main(int argc, char *argv[]){
             else if (event.type == SDL_KEYUP) {
                     handle_key_event(cpu, event.key.keysym.sym, 0);
             }
-
             }
-            
+
+            SDL_RenderCopy(renderer, texture, NULL, NULL);
+
+            //Fetch Decode Execute
+            uint16_t opcode;
+            for (int i = 0; i < 10; i++) {
+            uint16_t opcode = fetch(cpu);
+            decode_execute(cpu, opcode);
         }
+
+            for (int i = 0; i < 64 * 32; i++) {
+            pixel_buffer[i] = (cpu->display[i] == 1) ? 0xFFFFFFFF : 0x000000FF;
+        }
+    
+            SDL_UpdateTexture(texture, NULL, pixel_buffer, 64 * sizeof(uint32_t));
+            
+            END = SDL_GetTicks();
+        }
+
+    SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
