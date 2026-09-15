@@ -298,7 +298,7 @@ void decode_execute(chip8* cpu, uint16_t opcode){
             SKP_Vx(cpu, x);
             break;
         case 10:
-            SKNP(cpu, x);
+            SKNP_Vx(cpu, x);
             break;
         }
         break;
